@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP-Dienste · neher.ai</title>
+<meta name="description" content="KI-Werkzeuge von neher.ai direkt in Claude und ChatGPT. Übersicht der MCP-Dienste mit Verbindungsadresse.">
+<meta property="og:title" content="MCP-Dienste · neher.ai">
+<meta property="og:description" content="KI-Werkzeuge von neher.ai direkt in Claude und ChatGPT.">
+<style>
+  :root {
+    --lemon: #e8ef8b;
+    --ink: #20251f;
+    --chalk: #f5f4ee;
+    --stone: #5f675b;
+    --line: #d4d9c9;
+    --mono: Consolas, "SFMono-Regular", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--chalk); color: var(--ink); font: 17px/1.55 Arial, Helvetica, sans-serif; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  header { background: var(--lemon); padding: 56px 0 48px; }
+  .label { font: 12px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--stone); }
+  header .label { color: var(--ink); opacity: .75; }
+  h1 { font-weight: 400; font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 14px 0 16px; }
+  header p { margin: 0; max-width: 560px; }
+  main { padding: 40px 0 24px; }
+  h2 { font-weight: 400; font-size: 26px; margin: 0 0 8px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px; margin-bottom: 32px; }
+  .card p { margin: 8px 0; }
+  .addr { display: flex; gap: 8px; align-items: center; margin: 16px 0 8px; flex-wrap: wrap; }
+  .addr code { font: 15px var(--mono); background: var(--chalk); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  button { font: 13px var(--mono); text-transform: uppercase; letter-spacing: .06em; background: var(--ink); color: var(--lemon); border: 0; border-radius: 6px; padding: 10px 14px; cursor: pointer; }
+  .hint { font-size: 14px; color: var(--stone); }
+  ol { padding-left: 20px; margin: 8px 0 0; }
+  li { margin: 4px 0; }
+  a { color: var(--ink); }
+  footer { border-top: 1px solid var(--line); padding: 24px 0 48px; }
+  footer .label a { color: var(--stone); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="label">neher.ai / MCP-Dienste</div>
+    <h1>KI-Werkzeuge direkt in Claude und ChatGPT</h1>
+    <p>Ein MCP-Dienst ist ein Connector. Du trägst die Adresse einmal ein, meldest dich an und nutzt das Werkzeug danach direkt im Chat.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <div class="label">Pilot / Zugang auf Anfrage</div>
+    <h2>KI-Zielgruppensimulation</h2>
+    <p>KI-Personen reagieren auf ein Angebot, einen Namen oder eine Kampagne. Danach werden sie befragt, die Antworten im Code ausgezählt, jede Frage mit neutraler Gegenprobe. Ergebnis: ein Stimmungsbild mit Einwänden in etwa einer Stunde.</p>
+    <p><strong>Keine echten Befragten, keine Prognose.</strong></p>
+    <div class="addr">
+      <code id="sim">https://simulation.neher.ai/mcp</code>
+      <button type="button" data-copy="sim">Kopieren</button>
+    </div>
+    <p class="hint">Dashboard: <a href="https://simulation.neher.ai">simulation.neher.ai</a>. Verwendet die Open-Source-Software MiroFish (AGPL-3.0). Keine Verbindung zum offiziellen MiroFish-Projekt.</p>
+  </section>
+
+  <section>
+    <h2>So verbindest du einen Dienst</h2>
+    <ol>
+      <li>In Claude oder ChatGPT einen eigenen Connector hinzufügen.</li>
+      <li>Die Adresse von oben einfügen.</li>
+      <li>Mit deinem Konto anmelden und den Zugriff erlauben.</li>
+    </ol>
+    <p class="hint">Konten werden in der Pilotphase einzeln freigeschaltet. Anfrage an <a href="mailto:klaus@neher.ai">klaus@neher.ai</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap label">
+    Klaus Neher / München / <a href="https://neher.ai">neher.ai</a> / <a href="https://neher.ai/impressum">Impressum</a> / <a href="https://simulation.neher.ai/datenschutz">Datenschutz</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll("button[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var t = document.getElementById(b.dataset.copy).textContent;
+      navigator.clipboard.writeText(t).then(function () {
+        b.textContent = "Kopiert";
+        setTimeout(function () { b.textContent = "Kopieren"; }, 1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>
